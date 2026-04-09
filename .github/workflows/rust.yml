@@ -2,16 +2,16 @@ name: Rust
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-medium-4c-8g
 
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
 
       - name: Setup nix
         uses: DeterminateSystems/determinate-nix-action@v3.11.1
-      
+
       - name: Check formatting
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
